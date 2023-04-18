@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-const Input = ({ type = "text", label, placeholder, rows = 4 }) => {
+const Input = ({ type = "text", label, placeholder, rows = 4, ...rest }) => {
   const uuid = useId();
 
   if (type === "textarea") {
@@ -14,6 +14,7 @@ const Input = ({ type = "text", label, placeholder, rows = 4 }) => {
           placeholder={placeholder}
           id={uuid}
           rows={rows}
+          onChange={rest.onChange}
         ></textarea>
       </div>
     );
@@ -29,6 +30,7 @@ const Input = ({ type = "text", label, placeholder, rows = 4 }) => {
         placeholder={placeholder}
         className="form-control"
         id={uuid}
+        onChange={rest.onChange}
       />
     </div>
   );
